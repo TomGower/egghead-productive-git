@@ -105,7 +105,9 @@ Use `git reset --hard HASH` to return to the commit at HASH. Any commits after t
 
 ## 13: Undo a commit that has already been pushed to the remote repository
 
-a
+If we want to undo a commit that has already been pushed the remote repository, then we cannot use any commands that would change the id of that commit. This includes `git reset` or `git amend`, etc.
+
+To do this in a safe way, use `git revert HASH_OF_COMMIT_TO_BE_UNDONE`. This opens up editing mode, which will just show revert. If we then use `git lg`, this revert shows up as a separate commit
 
 ## 14: Temporarily store some work in progress because I have to jump to another branch
 
