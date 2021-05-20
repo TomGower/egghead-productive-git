@@ -85,7 +85,9 @@ After we run this, `git lg` doesn't show anything. If we run `git commit`, we se
 
 ## 9: Change the commit message of my last commit
 
-a
+Imagine a commit `git commit -am 'add credit section to readme'`, but we want to change the commit message to fix a typo or better describe what we did or to match some sort of naming convention. Use `git commit --amend`. This opens up editing mode, and we can change the commit message to whatever we want. Running `git lg` shows the commit has been renamed.
+
+N.B. we can do this when we have not already synced the changes with the remote repository. This changes the id of the commit, and so would break the merges with other people.
 
 ## 10: Add a file I've forgotten to add to my last commit
 
