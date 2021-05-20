@@ -95,11 +95,11 @@ If a file has been modified and you want to add it to the last commit, use `git 
 
 ## 11: Undo my last commit and split it into two separate ones
 
-a
+Scenario: `git add file1 file2`, `git commit`, commit has not yet been pushed to master. To just undo the last commit, use `git reset HEAD~`. `git status` will show the files as not yet committed. The last commit is also removed from `git lg`. You can now `git add file1`, `git commit -m 'first commit'`, and commit the first file, then `git add file2` and `git commit -m 'second commit'` to commit the second file, like you meant to do. Using `git lg` will now show these as separate commits.
 
 ## 12: Wipe a commit from my local branch
 
-a
+
 
 ## 13: Undo a commit that has already been pushed to the remote repository
 
