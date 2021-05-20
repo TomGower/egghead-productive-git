@@ -46,7 +46,13 @@ On the `app-refactoring` branch, you have a couple possibilities. One is `git me
 
 ## 5: Push a rebased local branch by using `--force-with-lease`
 
-a
+With `rebase`, we are essentially rewriting history.
+
+Push `app-refactoring` up to origin. Then switch branches with `git checkout main`. Then make a change in to a file in `main`. Now switch back to `app-refactoring`. Run `git rebase main`. This synchronizes our branch with `main`. But you can see (at least in Juri's command line) arrows. If we now try to `git push`, we get a message "Updates were rejected because the tip of your current branch is behind its remote counterpart." We added new things rather than being behind.
+
+We get this message because we rewrote our commit hashes, so git doesn't recognize them anymore. We know our local branch is updated, so we want to override our remote counterpart. Use `git push -f` for `--force`, which overrides the remote repository branch we are currently pushing. Do not this on `main` but only on your feature branch and only if your feature branch is personal and not shared with anybody else.
+
+Alternatively, use `git push --force-with-lease` to make sure no one else has accidentally modified that feature branch.
 
 ## 6: Polish my git feature branch before merging or submitting for review
 
