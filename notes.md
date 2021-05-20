@@ -10,7 +10,17 @@ Or just use `git add .` for all of them.
 
 ## 2: Make my git log look pretty and readable
 
-a
+`git log` gives us the overview of what is happening on the branch we are looking at. It shows us the hash of each particular commit, who committed it, when it was committed, and the commit message. But this is a lot of text, especially if there's been a lot of work in the particular repo.
+
+What we can do instead is create an alias to present a nicer version of this. To create, a git alias, create a gitconfig file in the root alias of your user. `ls ~/user/.gitconfig`. Your `.gitconfig` might exist and have stuff in it already (mine has my name and email). Now create a new 'category' `[alias]` and a new alias `lg = log --color --graph --pretty=format:REALLY_LONG_CONFIG_STRING --abbrev-commit --branches`.
+Color makes it easier to read.
+Graph is useful if there are multiple branches, and it shows us when they were created and how they merge.
+The pretty is to make it more readable.
+Abbreviated commit is *something*.
+Branches is *something*.
+
+This gives us a nice-looking report of
+`hash shorthand - (branch change, if any) commit message (time) <commit author>`
 
 ## 3: Move some commits to a separate branch that I have accidentally committed to master
 
