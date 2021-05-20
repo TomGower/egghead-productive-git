@@ -91,7 +91,7 @@ N.B. we can do this when we have not already synced the changes with the remote 
 
 ## 10: Add a file I've forgotten to add to my last commit
 
-a
+If a file has been modified and you want to add it to the last commit, use `git add fileName`. If you then use `git status`, you should see that the file is to be committed. You can then use `git commit --amend`. This opens up the editor, and the file that you added will be listed among the "Changes to be committed:" You can use `git lg` to show that there is no new commit, and `git status` to confirm that the modified file is not longer listed among the files to be committed.
 
 ## 11: Undo my last commit and split it into two separate ones
 
