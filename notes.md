@@ -79,7 +79,9 @@ If we run `git lg` after doing this, we see our history has been cleaned up, wit
 
 ## 8: Squash all of my commits into a single one and merge into master
 
-a
+If we finish working on feature branch and want to merge it all into main in one commit, then use `git checkout main` to switch to main and run `git merge --squash app-refactoring`.
+
+After we run this, `git lg` doesn't show anything. If we run `git commit`, we see "Squashed commit of the following: [details]". We can then edit that message on the top line to read what we want it to say (e.g., "add app-refactoring"). Once we save and exit, if we run `git lg` again, we see that is the latest commit. We can see from the log that commit was not actually in the feature branch but instead was a commit to `main`.
 
 ## 9: Change the commit message of my last commit
 
