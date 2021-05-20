@@ -24,7 +24,15 @@ This gives us a nice-looking report of
 
 ## 3: Move some commits to a separate branch that I have accidentally committed to master
 
-a
+There are a couple ways to do this.
+Setup: commits have been made locally but have not yet been synced to the remote repository. If we have, this won't work.
+
+Step one: create a new branch with `git branch -b app-refactoring`.
+Step two: you're now still in the old branch and the new branch, so switch to just the old branch with `git checkout main`.
+Step three: remote the commits from the old branch. Check `git lg` and find the hash of the last 'good' commit. Use `git reset --hard HASH` to reset those commits.
+Step four: we're now done with our work in `main`, so switch to the new branch with `git checkout app-refactoring`.
+
+Now `git lg` should show us the commits are still there and just on the new branch. We can now do what we need with the new branch (in his example, push them up for review).
 
 ## 4: Update my feature branch with the latest changes from master
 
