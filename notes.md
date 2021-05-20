@@ -36,7 +36,13 @@ Now `git lg` should show us the commits are still there and just on the new bran
 
 ## 4: Update my feature branch with the latest changes from master
 
-a
+It's a good idea to work on new functionality on a different branch. But it's also a good idea to still synchronize the different feature branch with the latest state of master on a regular basis. This avoids merge conflicts.
+
+On the `app-refactoring` branch, you have a couple possibilities. One is `git merge master` to create a new commit which is the result of merging your changes in `app-refactoring` with `main`. This is useful if you have already pushed your changes to origin and other developers are working on it as well. But if this is your reserved feature branch, you can use `git rebase`.
+
+`git rebase` takes each commit from `app-refactoring` and essentially merges them in on top of the latest commits from `main`. This does change the commit hashes, so it only makes sense to do this if it is your personal branch and is not shared with others.
+
+`git rebase main` rewinds head to replay your work on top of it. Running `git lg` after this shows the changes to `app-refactoring` as the latest changes, with an updated time to when the rebase happened.
 
 ## 5: Push a rebased local branch by using `--force-with-lease`
 
