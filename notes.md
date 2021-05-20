@@ -99,7 +99,9 @@ Scenario: `git add file1 file2`, `git commit`, commit has not yet been pushed to
 
 ## 12: Wipe a commit from my local branch
 
+Key point: you can return up to the point of the last sync with the remote repository, but cannot sync with a state before that.
 
+Use `git reset --hard HASH` to return to the commit at HASH. Any commits after that point have been discarded, as you can see in `git lg`. Using `--hard` reverts the same folder status as that commit, so any changes you have made in your local workspace will have been discarded.
 
 ## 13: Undo a commit that has already been pushed to the remote repository
 
