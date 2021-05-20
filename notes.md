@@ -111,4 +111,15 @@ To do this in a safe way, use `git revert HASH_OF_COMMIT_TO_BE_UNDONE`. This ope
 
 ## 14: Temporarily store some work in progress because I have to jump to another branch
 
-a
+Scenario: working on feature branch, but have to switch mid-progress to do some work on `main`.
+One option: commit everything to feature branch with some kind of WIP command.
+Alternative: use `git stash`.
+
+Use `git add .` to capture all working files (some modified, some not yet tracked), and then use `git stash`. Using `git status` shows "nothing to commit, everything is clean." You can then go to main with `git checkout main`, do the needed work, commit it, and switch back to feature branch with `git checkout app-footer`.
+
+Once you switch back to feature branch, you can use `git stash list`. This command will show you what you've stashed. You can imagine the stash as a stack structure. Using `git stash pop` to get the latest stash out of the stack. If you have only one stash, `git stash list` will now show as empty.
+
+If you want to maintain the files in stash, you can use `git stash apply`. Like `git stash pop`, this will move the stashed changes into your working directory. But if you do `git stash list`, the stash will still be listed.
+
+If you want to specifically identify what you are stashing, you can use `git stash save 'wip: app footer'`.
+**N.B.**: This may be deprecated?
