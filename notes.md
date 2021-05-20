@@ -56,7 +56,14 @@ Alternatively, use `git push --force-with-lease` to make sure no one else has ac
 
 ## 6: Polish my git feature branch before merging or submitting for review
 
-a
+General best practice: commit as often as possible in case something bad happens.
+Effect of using this best practice: if working on a separate feature branch, your colleagues would have to review multiple interstitial commits instead of just the ultimate changes they should be judging.
+
+So... it's a good idea to clean up your feature branch before merging with `main`. To do this, copy the hash of the last 'good' commit and use `git rebase -i HASH`. `-i` is for interactive.
+
+Now we get a list of the commits that have happened from that hash onward. From here you can do several things. Use `pick` to keep a commit. Use `r` to reword a commit. Use `f` to keep a commit's code changes but discard the log message.
+
+Once we close that file, we go into interactive rebasing and can change the wording of the commit we chose `r` to reword. Once we change that and exit, the rebase will be done and executed.
 
 ## 7: Automate the cleanup of my feature branch with Git Autosquash
 
