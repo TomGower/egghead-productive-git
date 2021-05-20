@@ -67,7 +67,15 @@ Once we close that file, we go into interactive rebasing and can change the word
 
 ## 7: Automate the cleanup of my feature branch with Git Autosquash
 
-a
+If we don't want to individually polish the frequent commits in our feature branch, as in #6, then we can automate the steps so that all subsequent commits "smush" (my word, not the technical term) into the first commit. To make subsequent commits "smush" into that commit, get the hash of that commit, then after `git add .` on a subsequent commit, use `git commit --fixup HASH`.
+
+In `git lg`, this will be shown as `fixup! top_commit_message`. For a subsequent commit to be smushed, you can use `git commit --fixup :/update` to search for language in the commit message ('update README' is Juri's example commit message). In `git lg`, this will be shown as `fixup! fixup! top_commit_message`.
+
+You can then make a separate change to a separate file, use `git add` and `git commit -m 'Some other change'`, and go back to working on previous commit. You can then use `git commit --fixedup :/update` to add it to the same history to be "smushed".
+
+When you're done, you can use `git rebase -i --autosquash HASH`, where HASH is the commit before you started making changes (not the commit whose message everything should be squashed into, but a commit before that one). In the `git rebase` message screen, the commits to be "smushed" (fixup) are displayed after the commit they will be "smushed" into, even if a purely temporal list of commits would be different.
+
+If we run `git lg` after doing this, we see our history has been cleaned up, with just the two (in our example) commits, and the "smushed" commits no longer visible.
 
 ## 8: Squash all of my commits into a single one and merge into master
 
